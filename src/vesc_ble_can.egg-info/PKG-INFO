@@ -1,0 +1,19 @@
+Metadata-Version: 2.4
+Name: vesc-ble-can
+Version: 0.1.0
+Summary: BLE (NUS) to VESC Express CAN discovery + telemetry polling
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: bleak>=0.21.0
+
+## Install (editable)
+python3 -m venv venv
+source venv/bin/activate
+pip install -U pip
+pip install -e .
+
+## Run CLI
+vesc-ble-can --name STAR-EXP --scan-seconds 10 --can-start 1 --can-end 50 --interval 0.5
+
+## Run as module (optional)
+python -m vesc_ble_can.cli --name STAR-EXP

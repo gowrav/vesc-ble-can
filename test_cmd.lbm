@@ -1,0 +1,64 @@
+;; ==========================
+;; Config
+;; ==========================
+(def SPEED_ERPM 4000)
+(def RUN_S 0.2)
+(def KEEPALIVE_MS 20)
+
+;; ==========================
+;; Handle CMD
+;; ==========================
+(defun handle-cmd (data)
+  {;(print "CMD RX:" data)
+    (if (eq data 1) {
+        (print "Forward")
+        (app-adc-detach 3 1)
+        (app-adc-override 0 1.6)
+        (app-adc-override 1 3.3)
+        (app-adc-override 2 3.3)
+        (app-adc-override 3 3.3)
+        (sleep RUN_S)
+        (app-adc-detach 0)
+        })
+    (if (eq data 2) {(print "Reverse")
+        (app-adc-detach 3 1)
+        (app-adc-override 0 1.6)
+        (app-adc-override 1 3.3)
+        (app-adc-override 2 3.3)
+        (app-adc-override 3 3.3)
+        (sleep RUN_S)
+        (app-adc-detach 0)
+        })
+    (if (eq data 0) {(print "Stop")
+        (app-adc-detach 3 1)
+        (app-adc-override 0 0)
+        (app-adc-override 1 3.3)
+        (app-adc-override 2 3.3)
+        (app-adc-override 3 3.3)
+        (sleep RUN_S)
+        (app-adc-detach 0)
+        })
+  }
+)
+
+;; ==========================
+;; RX Handler
+;; ==========================
+(defun proc-data (data) {
+  ;(print "RX RAW:" data)
+  (if (> (buflen data) 0)
+      (handle-cmd (bufget-u8 data 0)))
+})
+
+(defun event-handler () {
+  (loopwhile t
+    (recv
+      ((event-data-rx . (? data)) (proc-data data))
+      (_ nil))
+  )
+})
+
+(event-register-handler (spawn event-handler))
+(event-enable 'event-data-rx)
+
+(print "Custom CMD listener active")

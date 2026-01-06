@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vesc-ble-can"
+version = "0.1.0"
+description = "BLE (NUS) to VESC Express CAN discovery, telemetry polling, and custom app control"
+readme = "README.md"
+requires-python = ">=3.9"
+
+authors = [
+  { name = "Gowrav Lakshmegowda", email = "gowrav.hassan@gmail.com" }
+]
+
+license = { text = "MIT" }
+
+dependencies = [
+  "bleak>=0.21.0",
+]
+
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Topic :: System :: Hardware",
+  "Topic :: Software Development :: Embedded Systems",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Operating System :: MacOS",
+  "Operating System :: POSIX :: Linux",
+]
+
+[project.urls]
+Homepage = "https://github.com/gowrav/vesc-ble-can"
+Repository = "https://github.com/gowrav/vesc-ble-can"
+Issues = "https://github.com/gowrav/vesc-ble-can/issues"
+
+[project.scripts]
+vesc-ble-can = "vesc_ble_can.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
