@@ -1,2 +1,0 @@
-[console_scripts]
-vesc-ble-can = vesc_ble_can.cli:main

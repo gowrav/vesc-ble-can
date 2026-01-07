@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Packaging artifacts
+*.egg-info/
+build/
+dist/
+
+# Virtual environments
+venv/
+.venv/
+vesc_env/
+pyvenv.cfg
+
+# Packaging
+*.egg-info/
+dist/
+build/
+
+# Editors
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+

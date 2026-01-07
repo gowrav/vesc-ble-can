@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+"""
+Legacy reference script.
+
+This file shows the original end-to-end BLE + CAN workflow.
+Not used by the library or CLI.
+"""
+
 import asyncio
 from typing import Dict, List
 
