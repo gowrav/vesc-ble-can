@@ -26,11 +26,25 @@ It is designed to be:
 
 ## Installation
 
-### From PyPI (recommended)
+### From PyPI (pending implementation)
 
 ```bash
 pip install vesc-ble-can
 ```
+### Github Only Install 
+How users should install (GitHub-only)
+
+```bash
+git clone https://github.com/gowrav/vesc-ble-can.git
+cd vesc-ble-can
+pip install -e .
+```
+
+Or directly via pip (still GitHub-only):
+```bash
+pip install git+https://github.com/gowrav/vesc-ble-can.git
+```
+
 
 ### Editable install (for development)
 #### Use this if you are developing or modifying the library.
