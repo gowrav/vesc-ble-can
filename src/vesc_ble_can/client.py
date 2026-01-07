@@ -93,6 +93,7 @@ class VescBleCanClient:
                 pass
 
         await self._client.connect()
+        await asyncio.sleep(5)
         await self._client.start_notify(NUS_TX_NOTIFY, on_notify)
 
         # Sanity: local FW request
